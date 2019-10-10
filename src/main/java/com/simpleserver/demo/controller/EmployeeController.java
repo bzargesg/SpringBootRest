@@ -1,18 +1,13 @@
 package com.simpleserver.demo.controller;
 
-import java.util.ArrayList;
-
 import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -34,7 +29,8 @@ public class EmployeeController {
 
   @GetMapping(path = "/", produces = "application/json")
   public Employees getEmployees() {
-    return employeeDao.getAllEmployees();
+    Employees employeeList = employeeDao.getAllEmployees();
+    return employeeList;
   }
 
   @PostMapping(path = "/", consumes = "application/json", produces = "application/json")
